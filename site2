@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home - Il Mio Sito</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; background: #f9f9f9; }
+    header { background: #333; padding: 15px; text-align: center; }
+    nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; }
+    nav a:hover { text-decoration: underline; }
+    .container { padding: 40px; text-align: center; }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="galleria.html">Galleria</a>
+      <a href="listino.html">Listino</a>
+      <a href="contatti.html">Contatti</a>
+    </nav>
+  </header>
+  <div class="container">
+    <h1>Benvenuto nel Mio Sito</h1>
+    <p>Qui trovi la galleria dei prodotti e il listino prezzi aggiornato.</p>
+  </div>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galleria</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; background: #f9f9f9; }
+    header { background: #333; padding: 15px; text-align: center; }
+    nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; }
+    nav a:hover { text-decoration: underline; }
+    .gallery { 
+      display: grid; 
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+      gap: 20px; 
+      padding: 20px;
+    }
+    .gallery img { width: 100%; border-radius: 12px; transition: 0.3s; }
+    .gallery img:hover { transform: scale(1.05); }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="galleria.html">Galleria</a>
+      <a href="listino.html">Listino</a>
+      <a href="contatti.html">Contatti</a>
+    </nav>
+  </header>
+  <div class="gallery">
+    <img src="https://via.placeholder.com/300x200?text=Prodotto+1" alt="Prodotto 1">
+    <img src="https://via.placeholder.com/300x200?text=Prodotto+2" alt="Prodotto 2">
+    <img src="https://via.placeholder.com/300x200?text=Prodotto+3" alt="Prodotto 3">
+    <img src="https://via.placeholder.com/300x200?text=Prodotto+4" alt="Prodotto 4">
+  </div>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Listino Prezzi</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; background: #f9f9f9; }
+    header { background: #333; padding: 15px; text-align: center; }
+    nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; }
+    nav a:hover { text-decoration: underline; }
+    table { width: 90%; margin: 30px auto; border-collapse: collapse; background: white; }
+    th, td { border: 1px solid #ddd; padding: 12px; text-align: center; }
+    th { background: #333; color: white; }
+    #searchInput { 
+      display: block; 
+      width: 90%; 
+      margin: 20px auto; 
+      padding: 10px; 
+      border-radius: 8px; 
+      border: 1px solid #ccc; 
+      font-size: 16px; 
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="galleria.html">Galleria</a>
+      <a href="listino.html">Listino</a>
+      <a href="contatti.html">Contatti</a>
+    </nav>
+  </header>
+
+  <input type="text" id="searchInput" placeholder="Cerca un prodotto...">
+
+  <table id="listino">
+    <tr>
+      <th>Prodotto</th>
+      <th>Descrizione</th>
+      <th>Prezzo</th>
+    </tr>
+    <tr>
+      <td>Prodotto A</td>
+      <td>Descrizione breve A</td>
+      <td>€20</td>
+    </tr>
+    <tr>
+      <td>Prodotto B</td>
+      <td>Descrizione breve B</td>
+      <td>€35</td>
+    </tr>
+    <tr>
+      <td>Prodotto C</td>
+      <td>Descrizione breve C</td>
+      <td>€50</td>
+    </tr>
+  </table>
+
+  <script>
+    document.getElementById("searchInput").addEventListener("keyup", function() {
+      let filter = this.value.toLowerCase();
+      let rows = document.querySelectorAll("#listino tr");
+      rows.forEach((row, index) => {
+        if (index === 0) return;
+        row.style.display = row.textContent.toLowerCase().includes(filter) ? "" : "none";
+      });
+    });
+  </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contatti</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; background: #f9f9f9; }
+    header { background: #333; padding: 15px; text-align: center; }
+    nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; }
+    nav a:hover { text-decoration: underline; }
+    form { max-width: 500px; margin: 40px auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+    input, textarea { width: 100%; padding: 10px; margin: 10px 0; border-radius: 6px; border: 1px solid #ccc; }
+    button { background: #333; color: white; padding: 10px 20px; border: none; border-radius: 6px; cursor: pointer; }
+    button:hover { background: #555; }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="galleria.html">Galleria</a>
+      <a href="listino.html">Listino</a>
+      <a href="contatti.html">Contatti</a>
+    </nav>
+  </header>
+  <form>
+    <h2>Contattaci</h2>
+    <input type="text" placeholder="Nome" required>
+    <input type="email" placeholder="Email" required>
+    <textarea rows="5" placeholder="Messaggio" required></textarea>
+    <button type="submit">Invia</button>
+  </form>
+</body>
+</html>
